@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+gunicorn
+pandas
+requests
+joblib
+scikit-learn
+python-multipart
+math
+datetime
+sys
+types
+numpy
