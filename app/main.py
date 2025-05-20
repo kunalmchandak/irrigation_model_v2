@@ -158,7 +158,7 @@ def predict_and_schedule(city, crop_type, crop_stage, soil_type="loamy"):
 
     water_pred = float(model.predict(features)[0])   # mm day‑1
     interval   = irrigation_interval(water_pred, crop_stage, soil_type, w["rain"])
-    next_date  = (datetime.now() + timedelta(days=interval)).strftime("%Y‑%m‑%d")
+    next_date = datetime.now() + timedelta(days=interval)
 
     return {
         "city":              city,
@@ -174,7 +174,7 @@ def predict_and_schedule(city, crop_type, crop_stage, soil_type="loamy"):
         "kc":                kc_val,
         "predicted_water_mm_d": round(water_pred, 2),
         "interval_days":     interval,
-        "next_irrigation":   next_date,
+        "next_irrigation":   next_date.strftime("%Y-%m-%d"),
     }
 
 app = FastAPI()
